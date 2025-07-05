@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Scale, Users, FileText, Shield, Phone, Mail, MapPin, Clock, CheckCircle, Award, BookOpen, Briefcase, ArrowRight, Star, Calendar, MessageCircle, Download, ExternalLink, ChevronRight, TrendingUp, Building, Gavel, UserCheck } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, Scale, Users, FileText, Shield, Phone, Mail, MapPin, Clock, CheckCircle, Award, BookOpen, Briefcase, ArrowRight, Star, Calendar, MessageCircle, Download, ExternalLink, ChevronRight, TrendingUp, Building, Gavel, UserCheck, Heart, Compass, Lightbulb } from 'lucide-react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,7 +57,7 @@ function App() {
   const achievements = [
     {
       icon: <Award className="w-8 h-8 text-amber-600" />,
-      number: "10+",
+      number: "7+",
       label: "Years Experience",
       description: "Decade of legal expertise"
     },
@@ -99,7 +102,21 @@ function App() {
       content: "Outstanding legal services for our company's compliance and documentation needs. Ashutosh's proactive approach and deep understanding of corporate law saved us from potential legal complications.",
       rating: 5,
       image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150"
-    }
+    },
+    {
+      name: "Rajesh Kumar",
+      role: "CEO, Tech Solutions Pvt. Ltd.",
+      content: "Ashutosh's expertise in corporate law helped us navigate complex business challenges. His attention to detail and professional approach is commendable. The legal strategies he provided were instrumental in our company's growth.",
+      rating: 5,
+      image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150"
+    },
+    {
+      name: "Priya Sharma",
+      role: "Property Developer",
+      content: "Excellent legal consultation and representation in property matters. He explained complex legal procedures in simple terms and achieved a favorable outcome for my case. Highly recommended for real estate legal issues.",
+      rating: 5,
+      image: "https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=150"
+    },
   ];
 
   const credentials = [
@@ -110,6 +127,35 @@ function App() {
     "Certified Legal Consultant",
     "Corporate Law Specialization"
   ];
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      }
+    ]
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -169,10 +215,10 @@ function App() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="mb-6">
-                <div className="inline-flex items-center bg-amber-600/20 text-amber-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                {/* <div className="inline-flex items-center bg-amber-600/20 text-amber-400 px-4 py-2 rounded-full text-sm font-medium mb-4">
                   <UserCheck className="w-4 h-4 mr-2" />
                   Licensed Legal Professional
-                </div>
+                </div> */}
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
                   Ashutosh Ojha
                 </h1>
@@ -226,7 +272,7 @@ function App() {
                 />
                 <div className="absolute -bottom-6 -right-6 bg-amber-600 text-white p-4 rounded-xl shadow-lg">
                   <div className="text-center">
-                    <div className="text-2xl font-bold">10+</div>
+                    <div className="text-2xl font-bold">7+</div>
                     <div className="text-sm">Years Experience</div>
                   </div>
                 </div>
@@ -237,7 +283,7 @@ function App() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/*++++++++++++++++++++++++++++++++++++++++ About Section +++++++++++++++++++++++++++++++++++++++*/}
       <section id="about" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
@@ -272,7 +318,7 @@ function App() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {credentials.map((credential, index) => (
                     <div key={index} className="flex items-center">
-                      <CheckCircle className="w-5 h-5 text-amber-600 mr-3 flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-amber-600 mr-3" />
                       <span className="text-gray-700">{credential}</span>
                     </div>
                   ))}
@@ -307,7 +353,7 @@ function App() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/*++++++++++++++++++++++++++++++++++++++++++++++++ Services Section ++++++++++++++++++++++++++++++++++++++++++++*/}
       <section id="services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -355,7 +401,7 @@ function App() {
         </div>
       </section>
 
-      {/* Practice Areas */}
+      {/*++++++++++++++++++++++++++++++++++++++++ Practice Areas +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}
       <section id="practice" className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -385,7 +431,7 @@ function App() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/*+++++++++++++++++++++++++++++++++++++++++++++++++++++ Testimonials +++++++++++++++++++++++++++++++++++++++++++++++++++*/}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -401,46 +447,44 @@ function App() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl hover:border-amber-200 transition-all duration-300">
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-amber-500 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-6 italic leading-relaxed">"{testimonial.content}"</p>
-                <div className="flex items-center">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full mr-4 object-cover"
-                  />
-                  <div>
-                    <p className="font-semibold text-slate-900">{testimonial.name}</p>
-                    <p className="text-sm text-gray-600">{testimonial.role}</p>
+          <div className="px-4" >
+            <Slider {...settings}>
+              {testimonials.map((testimonial, index) => (
+                <div key={index} className="px-2" style={{marginBottom: '126px'}}>
+                  <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl hover:border-amber-200 transition-all duration-300 h-full">
+                    <div className="flex mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-5 h-5 text-amber-500 fill-current" />
+                      ))}
+                    </div>
+                    <p className="text-gray-700 mb-6 italic leading-relaxed">"{testimonial.content}"</p>
+                    <div className="flex items-center">
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-12 h-12 rounded-full mr-4 object-cover"
+                      />
+                      <div>
+                        <p className="font-semibold text-slate-900">{testimonial.name}</p>
+                        <p className="text-sm text-gray-600">{testimonial.role}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </Slider>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/*+++++++++++++++++++++++++++++++++++++++++++++++++++++ Contact Section +++++++++++++++++++++++++++++++++++++++++++++++++++*/}
       <section id="contact" className="py-20 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="inline-flex items-center bg-amber-600/20 text-amber-400 px-3 py-1 rounded-full text-sm font-medium mb-4">
-              <Phone className="w-4 h-4 mr-2" />
+            <span className="inline-flex items-center bg-amber-600/20 text-amber-400 px-6 py-3 rounded-full text-lg font-medium mb-4">
+              <Phone className="w-6 h-6 mr-3" />
               Contact Us
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Get Professional Legal Consultation
-            </h2>
-            <p className="text-xl text-gray-300">
-              Ready to discuss your legal needs? Contact us for expert consultation and guidance.
-            </p>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -453,8 +497,8 @@ function App() {
                   </div>
                   <div>
                     <p className="font-medium text-white mb-1">Phone</p>
-                    <p className="text-gray-300">+91 9876543210</p>
-                    <p className="text-sm text-gray-400">Available Mon-Sat, 9 AM - 6 PM</p>
+                    <p className="text-gray-300">+91 9415128663</p>
+                    {/* <p className="text-sm text-gray-400">Available Mon-Sat, 10 AM - 7 PM</p> */}
                   </div>
                 </div>
                 
@@ -464,8 +508,9 @@ function App() {
                   </div>
                   <div>
                     <p className="font-medium text-white mb-1">Email</p>
-                    <p className="text-gray-300">ashutosh.ojha@legalconsult.com</p>
-                    <p className="text-sm text-gray-400">Response within 24 hours</p>
+                    <p className="text-gray-300">ashutosh.adv@outlook.com</p>
+                    <p className="text-gray-300">solicitiorsworkshop@gmail.com</p>
+                    {/* <p className="text-sm text-gray-400">Response within 24 hours</p> */}
                   </div>
                 </div>
                 
@@ -475,8 +520,8 @@ function App() {
                   </div>
                   <div>
                     <p className="font-medium text-white mb-1">Office Address</p>
-                    <p className="text-gray-300">123 Legal District, City Center<br />State, PIN - 123456</p>
-                    <p className="text-sm text-gray-400">By appointment only</p>
+                    <p className="text-gray-300">311-B, Tower B, Third Floor, The Ithum, Sector 62, Noida <br />Uttar Pradesh - 201301</p>
+            
                   </div>
                 </div>
                 
@@ -486,15 +531,15 @@ function App() {
                   </div>
                   <div>
                     <p className="font-medium text-white mb-1">Office Hours</p>
-                    <p className="text-gray-300">Mon-Fri: 9:00 AM - 6:00 PM<br />Sat: 10:00 AM - 2:00 PM</p>
-                    <p className="text-sm text-gray-400">Emergency consultations available</p>
+                    <p className="text-gray-300">Mon-Fri: 10:00 AM - 7:00 PM<br />Sat: 11:00 AM - 2:00 PM</p>
+                    <p className="text-sm text-gray-400">By appointment only</p>
                   </div>
                 </div>
               </div>
             </div>
             
             <div>
-              <h3 className="text-2xl font-semibold mb-8 text-amber-400">Schedule a Consultation</h3>
+              <h3 className="text-2xl font-semibold mb-8 text-amber-400">Do you have any legal query ?</h3>
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -553,11 +598,12 @@ function App() {
                 </p>
               </form>
             </div>
+          
           </div>
         </div>
       </section>
 
-      {/* Footer */}
+      {/* +++++++++++++++++++++++++++++++++++++++++++++Footer +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}
       <footer className="bg-slate-800 text-white py-12 border-t border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -599,7 +645,7 @@ function App() {
           <div className="border-t border-slate-700 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="text-gray-400 mb-4 md:mb-0">
-                © 2024 Ashutosh Ojha - Legal Consultant. All rights reserved.
+                2024 Ashutosh Ojha - Legal Consultant. All rights reserved.
               </div>
               <div className="text-gray-400 text-sm">
                 Professional Legal Services | Confidential Consultations
