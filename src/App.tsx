@@ -63,21 +63,21 @@ function App() {
     },
     {
       icon: <Users className="w-8 h-8 text-amber-600" />,
-      number: "500+",
-      label: "Clients Served",
+      number: "High",
+      label: "Professional Standard",
       description: "Satisfied clients nationwide"
     },
     {
-      icon: <TrendingUp className="w-8 h-8 text-amber-600" />,
-      number: "95%",
-      label: "Success Rate",
-      description: "Proven track record"
+      icon: <Award className="w-8 h-8 text-amber-600" />,
+      number: "Multiple",
+      label: "Areas of Expertise",
+      description: "Multiple Specializations"
     },
     {
-      icon: <Gavel className="w-8 h-8 text-amber-600" />,
-      number: "1000+",
-      label: "Cases Handled",
-      description: "Diverse legal matters"
+      icon: <Scale className="w-8 h-8 text-amber-600" />,
+      number: "Ethics",
+      label: "First",
+      description: "Professional integrity"
     }
   ];
 
@@ -120,11 +120,9 @@ function App() {
   ];
 
   const credentials = [
-    "LLB from National Law University",
-    "LLM in Corporate Law",
-    "Bar Council of India Registration",
-    "Member of State Bar Association",
-    "Certified Legal Consultant",
+    "LLB from Banaras Hindu University",
+    "Member of State Bar Council",
+    "Real Estate Law Specialization",
     "Corporate Law Specialization"
   ];
 
@@ -178,8 +176,9 @@ function App() {
               <div className="ml-10 flex items-baseline space-x-4">
                 <a href="#home" className="text-white hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
                 <a href="#about" className="text-gray-300 hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
-                <a href="#services" className="text-gray-300 hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+                {/* <a href="#services" className="text-gray-300 hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a> */}
                 <a href="#practice" className="text-gray-300 hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Practice Areas</a>
+                <a href="#knowledge" className="text-gray-300 hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">Knowledge Corner</a>
                 <a href="#contact" className="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">Contact</a>
               </div>
             </div>
@@ -225,10 +224,8 @@ function App() {
                 <p className="text-xl md:text-2xl mb-4 text-amber-400 font-semibold">
                   Advocate & Legal Consultant
                 </p>
-                <p className="text-lg md:text-xl mb-8 leading-relaxed text-gray-200">
-                  Providing expert legal services and consultation with over a decade of experience 
-                  in civil litigation, corporate law, and legal documentation. Your trusted legal partner 
-                  for comprehensive legal solutions.
+                <p className="text-lg md:text-xl mb-8 leading-relaxed text-gray-200 text-justify">
+                  Legal professional with over seven years of experience in civil litigation, real estate litigation, corporate advisory, and legal documentation. Experienced in handling complex legal matters with a practical, solution-oriented approach.
                 </p>
               </div>
               
@@ -251,13 +248,13 @@ function App() {
                   className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   <Calendar className="w-5 h-5 mr-2" />
-                  Schedule Consultation
+                  Disclaimer
                 </a>
                 <a
                   href="#services"
                   className="border-2 border-amber-500 text-amber-400 hover:bg-amber-500 hover:text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 flex items-center justify-center"
                 >
-                  View Services
+                  Practice Areas
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </a>
               </div>
@@ -307,7 +304,7 @@ function App() {
               </div>
               
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                With over 10 years of dedicated practice in law, I specialize in providing comprehensive 
+                With over 7 years of dedicated practice in law, I specialize in providing comprehensive 
                 legal services to individuals and businesses. My commitment to excellence and client-focused 
                 approach has established a reputation for delivering effective legal solutions with integrity 
                 and professionalism.
@@ -431,51 +428,7 @@ function App() {
         </div>
       </section>
 
-      {/*+++++++++++++++++++++++++++++++++++++++++++++++++++++ Testimonials +++++++++++++++++++++++++++++++++++++++++++++++++++*/}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium mb-4">
-              <Star className="w-4 h-4 mr-2" />
-              Client Testimonials
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              What Our Clients Say
-            </h2>
-            <p className="text-xl text-gray-600">
-              Real experiences from satisfied clients who trust our legal expertise
-            </p>
-          </div>
-          
-          <div className="px-4" >
-            <Slider {...settings}>
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="px-2" style={{marginBottom: '126px'}}>
-                  <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl hover:border-amber-200 transition-all duration-300 h-full">
-                    <div className="flex mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-amber-500 fill-current" />
-                      ))}
-                    </div>
-                    <p className="text-gray-700 mb-6 italic leading-relaxed">"{testimonial.content}"</p>
-                    <div className="flex items-center">
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        className="w-12 h-12 rounded-full mr-4 object-cover"
-                      />
-                      <div>
-                        <p className="font-semibold text-slate-900">{testimonial.name}</p>
-                        <p className="text-sm text-gray-600">{testimonial.role}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </Slider>
-          </div>
-        </div>
-      </section>
+     
 
       {/*+++++++++++++++++++++++++++++++++++++++++++++++++++++ Contact Section +++++++++++++++++++++++++++++++++++++++++++++++++++*/}
       <section id="contact" className="py-20 bg-slate-900 text-white">
@@ -483,7 +436,7 @@ function App() {
           <div className="text-center mb-16">
             <span className="inline-flex items-center bg-amber-600/20 text-amber-400 px-6 py-3 rounded-full text-lg font-medium mb-4">
               <Phone className="w-6 h-6 mr-3" />
-              Contact Us
+              Contact Me
             </span>
           </div>
           
@@ -568,11 +521,11 @@ function App() {
                   </div>
                   <div>
                     <select className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white border border-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors">
-                      <option value="">Select Service</option>
-                      <option value="civil">Civil Litigation</option>
-                      <option value="corporate">Corporate Law</option>
-                      <option value="documentation">Legal Documentation</option>
-                      <option value="consultation">Legal Consultation</option>
+                      <option value="">Your Query</option>
+                      <option value="civil">Get Support</option>
+                      <option value="corporate">Guidance</option>
+                      <option value="documentation">Find Solutions</option>
+                      <option value="consultation">Discuss Options</option>
                     </select>
                   </div>
                 </div>
@@ -580,7 +533,7 @@ function App() {
                 <div>
                   <textarea
                     rows={4}
-                    placeholder="Describe your legal matter in detail"
+                    placeholder="Describe your legal query in detail"
                     className="w-full px-4 py-3 rounded-lg bg-slate-800 text-white placeholder-gray-400 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors"
                   ></textarea>
                 </div>
@@ -634,10 +587,10 @@ function App() {
             <div>
               <h4 className="text-lg font-semibold text-white mb-4">Legal Services</h4>
               <div className="space-y-2">
-                <div className="text-gray-400">Civil Litigation</div>
-                <div className="text-gray-400">Corporate Law</div>
-                <div className="text-gray-400">Legal Documentation</div>
-                <div className="text-gray-400">Legal Consultation</div>
+                <div className="text-gray-400">Get Support</div>
+                <div className="text-gray-400">Guidance</div>
+                <div className="text-gray-400">Find Solutions</div>
+                <div className="text-gray-400">Discuss Options</div>
               </div>
             </div>
           </div>
