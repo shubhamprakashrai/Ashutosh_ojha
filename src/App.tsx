@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Scale, Users, FileText, Shield, Phone, Mail, MapPin, Clock, CheckCircle, Award, BookOpen, Briefcase, ArrowRight, Star, Calendar, MessageCircle, Download, ExternalLink, ChevronRight, TrendingUp, Building, Gavel, UserCheck, Heart, Compass, Lightbulb } from 'lucide-react';
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
